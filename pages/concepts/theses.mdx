@@ -1,0 +1,55 @@
+---
+title: Theses
+description: Learn how E3D turns multiple stories into directional investment theses.
+---
+
+# Theses
+
+Theses are the agent’s analyst memo: structured conclusions drawn from multiple converging stories.
+
+## What a thesis is
+
+A thesis is a directional brief — typically LONG, SHORT, or AVOID — supported by several related stories and scored with a conviction value.
+
+## Thesis anatomy
+
+A thesis usually includes:
+
+- direction
+- conviction score
+- supporting story IDs
+- token address or entity address
+- entry signal
+- invalidation signal
+- risk factors
+- status
+
+## How theses differ from stories
+
+- **Stories** are individual events
+- **Theses** are sustained conclusions
+
+A token can have many stories without a thesis. A thesis appears when the evidence converges strongly enough to justify a structured view.
+
+## Why it matters
+
+If stories are sensor blips, theses are the memo that tells you what the agent believes the blips mean.
+
+## Example shape
+
+```json
+{
+  "entity_address": "0x...",
+  "direction": "LONG",
+  "conviction": 0.87,
+  "time_horizon": "24h",
+  "status": "active"
+}
+```
+
+## Next
+
+- Read [Stories](/concepts/stories)
+- See the [Price Screener](/concepts/price-screener) for how stories and theses appear in the screener
+- See the [Hedge Fund Workflows](/guides/hedge-fund-workflows) guide for practical use cases
+- Open the [API Reference](/api)

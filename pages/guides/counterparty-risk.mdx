@@ -1,0 +1,35 @@
+---
+title: Counterparty Risk Guide
+description: Use token intelligence to monitor protocol and wallet risk.
+---
+
+# Counterparty Risk Guide
+
+Monitor who your protocol or wallet interacts with most often.
+
+## Workflow
+
+1. Pull token counterparties
+2. Pull address counterparties for the most important wallets
+3. Cross-reference against known risky addresses
+4. Keep the result in a monitoring loop
+
+```js
+import { E3D } from 'e3d-sdk';
+
+const e3d = new E3D({ baseUrl: 'https://e3d.ai/apitest' });
+
+const counterparties = await e3d.tokenIntelligence.getTokenCounterparties({
+  token: '0x6488861b401F427D13B6619C77C297366bCf6386',
+  limit: 10,
+});
+
+console.log(counterparties);
+```
+
+## What to look for
+
+- repeated bridge usage
+- CEX deposit clusters
+- sudden concentration in a single counterparty
+- coordinated wallet groups

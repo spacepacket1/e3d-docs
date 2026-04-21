@@ -1,0 +1,39 @@
+:root {
+  --nextra-primary-hue: 220;
+  --nextra-bg: #ffffff;
+  --nextra-navbar-height: 4rem;
+  --nextra-content-width: 80rem;
+}
+
+.dark {
+  --nextra-bg: #0a0a0f;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-feature-settings: 'rlig' 1, 'calt' 1;
+}
+
+a.cta-button,
+.cta-button {
+  background: #6366f1;
+  color: #fff;
+  border-radius: 8px;
+  padding: 0.65rem 1rem;
+  display: inline-flex;
+  align-items: center;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+}
+
+code,
+pre {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', monospace;
+}

@@ -1,0 +1,117 @@
+---
+title: Quick Start
+description: Get your first E3D API response in under five minutes.
+---
+
+import { Tabs } from 'nextra/components'
+
+# Quick Start
+
+Get a successful E3D response in under five minutes.
+
+## 1. Prerequisites
+
+- Node.js 18+ or Python 3.8+
+- An E3D API key from [Get API Key](/get-api-key)
+- A terminal
+
+## 2. Install the SDK
+
+<Tabs items={["JavaScript", "Python"]}>
+  <Tabs.Tab>
+
+```bash
+npm install e3d-sdk
+```
+
+  </Tabs.Tab>
+  <Tabs.Tab>
+
+```bash
+# Python package coming soon.
+# Use the standard-library helper in examples/python/e3d_client.py for now.
+```
+
+  </Tabs.Tab>
+</Tabs>
+
+## 3. Initialize the client
+
+<Tabs items={["JavaScript", "Python"]}>
+  <Tabs.Tab>
+
+```js
+import { E3D } from 'e3d-sdk';
+
+const e3d = new E3D({
+  baseUrl: 'https://e3d.ai/apitest',
+  apiKey: process.env.E3D_API_KEY,
+});
+```
+
+  </Tabs.Tab>
+  <Tabs.Tab>
+
+```py
+from e3d_client import E3DClient
+
+client = E3DClient()
+```
+
+  </Tabs.Tab>
+</Tabs>
+
+## 4. Fetch a token profile
+
+The token profile combines metadata, price, stories, theses, and narrative flow.
+
+<Tabs items={["JavaScript", "Python"]}>
+  <Tabs.Tab>
+
+```js
+const profile = await e3d.tokens.getTokenProfile('0x6488861b401F427D13B6619C77C297366bCf6386', {
+  chain: 'ETH',
+});
+
+console.log(profile.name, profile.symbol);
+```
+
+  </Tabs.Tab>
+  <Tabs.Tab>
+
+```py
+profile = client.get('/token/0x6488861b401F427D13B6619C77C297366bCf6386', query={'chain': 'ETH'})
+print(profile)
+```
+
+  </Tabs.Tab>
+</Tabs>
+
+## 5. Fetch recent stories
+
+<Tabs items={["JavaScript", "Python"]}>
+  <Tabs.Tab>
+
+```js
+const stories = await e3d.stories.list({ limit: 3 });
+console.log(stories);
+```
+
+  </Tabs.Tab>
+  <Tabs.Tab>
+
+```py
+stories = client.get('/stories', query={'limit': 3})
+print(stories)
+```
+
+  </Tabs.Tab>
+</Tabs>
+
+## 6. What next?
+
+- Read [Authentication](/authentication)
+- Open the [API Reference](/api)
+- Explore [Stories](/concepts/stories)
+- Learn about [Theses](/concepts/theses)
+- See [Token Intelligence](/concepts/token-intelligence)

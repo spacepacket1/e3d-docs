@@ -1,0 +1,59 @@
+---
+title: Stories
+description: Understand how E3D Stories are generated and how to use them.
+---
+
+# Stories
+
+Stories are the agent’s field notes: structured, time-stamped observations about on-chain behavior.
+
+## What a story is
+
+A story is an LLM-generated narrative triggered by a pattern detector. It includes a headline, supporting evidence, addresses, and a score so you can quickly see what happened and why it matters.
+
+## How stories are generated
+
+The pipeline looks like this:
+
+1. Blockchain data is ingested into ClickHouse
+2. Pattern-detection scripts find structural events
+3. The LLM synthesizes the event into a story
+4. The story is written back as a structured record
+
+## Common story types
+
+- **Rabbit Loop** — circular flow and recycling patterns
+- **Rabbit Cluster** — coordinated wallet group structure
+- **Rabbit Mirror** — wallets moving in suspiciously similar ways
+- **Rabbit Staging** — readiness patterns before an action
+- **Rug Liquidity Pull** — liquidity removal signals
+- **Whale Stealth Flow** — large holder movements with obfuscation
+- **Surge** — sudden price/volume spike with validation
+- **Governance Delegation Surge** — rapid voting-power shifts
+- **Ecosystem Shift** — chain-level capital rotation
+- **Bridge Paths** — cross-chain movement traces
+
+## Why it matters
+
+Stories tell you that something happened. They are the starting point for investigation, not the final answer.
+
+## Story shape
+
+```json
+{
+  "id": "uuid",
+  "chain": "ETH",
+  "story_type": "SURGE",
+  "score": 100,
+  "title": "...",
+  "summary": "...",
+  "meta_json": {},
+  "ts_created": "2026-04-21T00:00:00Z"
+}
+```
+
+## Next
+
+- Read [Theses](/concepts/theses)
+- See the [Story Feed guide](/guides/story-feed)
+- Open the [API Reference](/api)

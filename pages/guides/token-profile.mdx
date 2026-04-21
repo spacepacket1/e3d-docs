@@ -1,0 +1,34 @@
+---
+title: Token Profile Guide
+description: Build a complete token profile using the E3D SDK.
+---
+
+# Token Profile Guide
+
+Use the SDK to build a full token profile with metadata, price history, stories, and theses.
+
+## Steps
+
+1. Fetch token metadata
+2. Fetch price history
+3. Fetch recent stories
+4. Fetch recent theses
+5. Combine the results into one display object
+
+```js
+import { E3D } from 'e3d-sdk';
+
+const e3d = new E3D({ baseUrl: 'https://e3d.ai/apitest' });
+const address = '0x6488861b401F427D13B6619C77C297366bCf6386';
+
+const profile = await e3d.tokens.getTokenProfile(address, { chain: 'ETH' });
+const prices = await e3d.tokens.getTokenPricesWithHistoryAllRanges();
+const stories = await e3d.tokens.getTokenStories(address);
+const theses = await e3d.tokens.getTokenTheses(address);
+
+console.log({ profile, prices, stories, theses });
+```
+
+## Why it works
+
+A token profile is the fastest way to turn raw token metadata into a research-ready summary.

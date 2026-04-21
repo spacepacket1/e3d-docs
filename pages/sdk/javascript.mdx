@@ -1,0 +1,153 @@
+---
+title: JavaScript / TypeScript SDK
+description: Module-by-module reference for the E3D JavaScript SDK.
+---
+
+import { Tabs } from 'nextra/components'
+
+# JavaScript / TypeScript SDK
+
+Install with `npm install e3d-sdk`.
+
+```js
+import { E3D } from 'e3d-sdk';
+
+const e3d = new E3D({
+  baseUrl: 'https://e3d.ai/apitest',
+  apiKey: process.env.E3D_API_KEY,
+});
+```
+
+## discovery
+
+Wraps `/openapi`, `/rate`, and newsletter-style utility endpoints.
+
+| Method | Purpose |
+|---|---|
+| `getOpenApi()` | Fetch the live OpenAPI schema |
+| `getRate()` | Fetch the current E3D rate |
+| `getNewsletter()` | Fetch the latest newsletter |
+
+```js
+const openApi = await e3d.discovery.getOpenApi();
+const rate = await e3d.discovery.getRate();
+```
+
+## tokens
+
+Token discovery, metadata, price history, and token bundle helpers.
+
+| Method | Purpose |
+|---|---|
+| `fetchTokensDB()` | Query token rows from the DB-backed surface |
+| `getTokenProfile(address)` | Fetch the composite token profile bundle |
+| `getTokenStories(address)` | Fetch token-linked stories |
+| `getTokenTheses(address)` | Fetch token-linked theses |
+| `getTokenNarrativeFlow(address)` | Fetch narrative flow data |
+
+```js
+const profile = await e3d.tokens.getTokenProfile('0x6488861b401F427D13B6619C77C297366bCf6386', {
+  chain: 'ETH',
+});
+```
+
+## stories
+
+Story feed and story-linked discovery helpers.
+
+| Method | Purpose |
+|---|---|
+| `list({ limit })` | List stories |
+| `getAddresses()` | Fetch story address list |
+| `getById({ storyId })` | Read one story |
+| `getByIds({ ids })` | Read many stories |
+| `getDerived({ sourceStoryId })` | Expand from a source story |
+
+```js
+const stories = await e3d.stories.list({ limit: 5 });
+```
+
+## theses
+
+Thesis feed and annotation/candidate helpers.
+
+| Method | Purpose |
+|---|---|
+| `list({ limit })` | List thesis records |
+| `getCandidates()` | Fetch thesis candidates |
+| `getAnnotations()` | Fetch thesis annotations |
+
+```js
+const theses = await e3d.theses.list({ limit: 5 });
+```
+
+## tokenIntelligence
+
+Counterparty analysis and batch metadata helpers.
+
+| Method | Purpose |
+|---|---|
+| `getTokenCounterparties({ token, limit })` | Token-level counterparties |
+| `getAddressCounterparties({ address, limit })` | Address-level counterparties |
+| `getAddressMetaBatch({ addresses })` | Batch metadata lookup |
+
+```js
+const counterparties = await e3d.tokenIntelligence.getTokenCounterparties({
+  token: '0x6488861b401F427D13B6619C77C297366bCf6386',
+  limit: 10,
+});
+```
+
+## swap
+
+> **Note:** Swap is wallet-side only. The SDK builds quotes and transactions locally. No swap execution happens on E3D servers.
+
+| Method | Purpose |
+|---|---|
+| `getSupportedTokens()` | Discover supported wallet-side input tokens |
+| `quoteBuyE3D(...)` | Build a buy-side quote |
+| `buyE3D(...)` | Execute a wallet-side buy flow |
+| `quoteSellE3D(...)` | Build a sell-side quote |
+| `sellE3D(...)` | Execute a wallet-side sell flow |
+| `approveInputToken(...)` | Request ERC20 approval when needed |
+| `buildSwapTransaction(...)` | Return a raw transaction payload |
+| `estimateSwap(...)` | Estimate input or output before sending |
+
+```js
+const quote = e3d.swap.quoteBuyE3D({
+  inputToken: 'ETH',
+  amountIn: '50000000000000000',
+  slippageBps: 100,
+  deadlineMinutes: 30,
+});
+```
+
+## auth
+
+API key management helpers.
+
+| Method | Purpose |
+|---|---|
+| `listApiKeys()` | List API keys |
+| `createApiKey(body)` | Create a key |
+| `revokeApiKey(id)` | Revoke a key |
+
+```js
+const keys = await e3d.auth.listApiKeys();
+```
+
+## Error handling
+
+The SDK should normalize errors into a stable shape with codes like:
+
+- `AUTH_REQUIRED`
+- `AUTH_INVALID`
+- `NOT_FOUND`
+- `RATE_LIMIT`
+- `BAD_REQUEST`
+- `SERVER_ERROR`
+- `NETWORK_ERROR`
+
+## TypeScript
+
+The authoritative type definitions live in the `e3d-sdk` repository.

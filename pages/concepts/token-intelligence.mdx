@@ -1,0 +1,42 @@
+---
+title: Token Intelligence
+description: Counterparty analysis, wallet clustering, and batch token metadata for E3D.
+---
+
+# Token Intelligence
+
+Token intelligence is the address-level and token-level flow analysis layer of E3D.
+
+## What it does
+
+It helps answer questions like:
+
+- Who are the top counterparties for this address?
+- Which wallets are most active around this token?
+- What clusters are interacting with the asset?
+- What other wallets look related through shared flow patterns?
+
+## Core surfaces
+
+- **Address counterparties** — identify top senders and receivers for an address
+- **Token counterparties** — identify the most active wallets around a token
+- **Batch metadata** — fetch token metadata for many addresses at once
+
+## Why it matters
+
+Counterparty context helps separate organic activity from coordinated movement. It is especially useful for risk monitoring, wallet profiling, and infrastructure analysis.
+
+## Example use
+
+```js
+const counterparties = await e3d.tokenIntelligence.getTokenCounterparties({
+  token: '0x6488861b401F427D13B6619C77C297366bCf6386',
+  limit: 10,
+});
+```
+
+## Next
+
+- Read [Stories](/concepts/stories)
+- Read [Theses](/concepts/theses)
+- See the [Counterparty Risk guide](/guides/counterparty-risk)

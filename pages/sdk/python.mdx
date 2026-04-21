@@ -1,0 +1,60 @@
+---
+title: Python SDK
+description: Python examples and helper patterns for the E3D API.
+---
+
+# Python SDK
+
+> **Note:** A full pip package is coming soon. For now, use the standard-library helper in the examples directory.
+
+## Setup
+
+Copy `examples/python/e3d_client.py` from the E3D SDK repository and import it into your project.
+
+## Quick start
+
+```py
+from e3d_client import E3DClient
+
+client = E3DClient()
+openapi = client.get('/openapi')
+rate = client.get('/rate')
+print(openapi)
+print(rate)
+```
+
+## Token profile
+
+```py
+from e3d_client import E3DClient
+
+client = E3DClient()
+profile = client.get('/token/0x6488861b401F427D13B6619C77C297366bCf6386', query={'chain': 'ETH'})
+print(profile)
+```
+
+## Stories
+
+```py
+from e3d_client import E3DClient
+
+client = E3DClient()
+stories = client.get('/stories', query={'limit': 5})
+addresses = client.get('/stories/addresses')
+print(stories)
+print(addresses)
+```
+
+## Swap quote helper
+
+```py
+from decimal import Decimal
+
+amount_wei = int(Decimal('0.05') * Decimal(10 ** 18))
+```
+
+## Next
+
+- Read [Quick Start](/quickstart)
+- Read the [API Reference](/api)
+- Explore the JavaScript SDK docs for the full module list

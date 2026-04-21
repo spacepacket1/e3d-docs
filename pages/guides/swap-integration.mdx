@@ -1,0 +1,40 @@
+---
+title: Swap Integration
+description: Use the wallet-side E3D swap helpers to quote and build E3DToken trades.
+---
+
+# Swap Integration
+
+> **Note:** Swap is wallet-side only. The SDK builds transactions locally using ethers.js. No swap execution happens on E3D servers.
+
+## What the module does
+
+The swap helpers prepare buy and sell flows for E3DToken trading. They are intended to be used with a wallet provider such as MetaMask.
+
+## Typical flow
+
+1. Get a quote
+2. Approve an ERC20 if necessary
+3. Build the transaction
+4. Send it from the wallet
+
+## Buy example
+
+```js
+import { E3D } from 'e3d-sdk';
+
+const e3d = new E3D({ swap: { defaultRouterVersion: 3 } });
+
+const quote = e3d.swap.quoteBuyE3D({
+  inputToken: 'ETH',
+  amountIn: '50000000000000000',
+  slippageBps: 100,
+  deadlineMinutes: 30,
+});
+
+console.log(quote);
+```
+
+## Safety note
+
+Always confirm the wallet prompt yourself. The docs and SDK should only help you prepare the trade, not execute anything on your behalf.

@@ -1,0 +1,29 @@
+---
+title: NFTs
+description: E3D NFT endpoints, share status, and ownership verification.
+---
+
+# NFTs
+
+E3D exposes NFT endpoints for applications that need to work with the E3D NFT Manager contract.
+
+## What to know
+
+- All NFT fetch endpoints require a valid API key
+- Share status is stored in ClickHouse
+- Share updates verify on-chain ownership via the NFT Manager contract
+
+## Endpoint summary
+
+| Method | Endpoint | Auth | Description |
+|---|---|---|---|
+| GET | `/fetchNFTsDB` | API key | List NFTs from the database |
+| GET | `/fetchNFTs` | API key | Fetch NFTs from chain |
+| GET | `/fetchNFTById/:nftId` | API key | Single NFT by ID |
+| GET | `/nftShareStatus/bulk` | API key | Bulk share status lookup |
+| POST | `/nftShareStatus` | API key + on-chain ownership | Set share status |
+
+## Next
+
+- Open the [API Reference](/api)
+- Read [Authentication](/authentication)

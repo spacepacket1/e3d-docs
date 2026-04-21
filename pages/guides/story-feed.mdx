@@ -1,0 +1,43 @@
+---
+title: Story Feed Guide
+description: Build a live story feed and story embed workflow.
+---
+
+# Story Feed Guide
+
+Build a live story feed for a set of tokens or a broader watchlist.
+
+## Steps
+
+1. Search stories across your target universe
+2. Filter by category or token
+3. Sort by timestamp or score
+4. Render the story objects in a feed or embed them in an iframe
+
+```js
+import { E3D } from 'e3d-sdk';
+
+const e3d = new E3D({ baseUrl: 'https://e3d.ai/apitest' });
+const stories = await e3d.stories.list({ limit: 20 });
+const addresses = await e3d.stories.getAddresses();
+
+console.log(stories.length, addresses.slice(0, 3));
+```
+
+## Embed pattern
+
+Use the public story embed endpoint:
+
+```html
+<iframe
+  src="https://e3d.ai/embed/story/STORY_ID"
+  width="600"
+  height="400"
+  frameborder="0"
+  allowtransparency="true"
+></iframe>
+```
+
+## Why it matters
+
+The feed helps you monitor active narrative events without manually polling multiple endpoints.

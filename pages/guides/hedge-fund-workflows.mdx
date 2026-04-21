@@ -1,0 +1,109 @@
+---
+title: Hedge Fund Workflows
+description: Six practical hedge fund workflows built from E3D Stories, Theses, and token intelligence.
+---
+
+# Hedge Fund Workflows
+
+E3D is most useful when you use it as a live research desk. The workflows below are adapted from the hedge fund use-case spec.
+
+## 1. Pre-Trade Due Diligence
+
+**Problem:** Is this token real or manufactured?
+
+**Signals to watch:** Rabbit Loop, Rabbit Mirror
+
+**API calls:**
+
+```js
+await e3d.stories.list({ limit: 20 });
+await e3d.tokens.getTokenProfile(address, { chain: 'ETH' });
+```
+
+**How to interpret results:**
+
+Circular flows and tightly coordinated wallet behavior are warning signs for wash trading or manufactured activity.
+
+## 2. Identifying Accumulation
+
+**Problem:** See structural preparation before price reacts.
+
+**Signals to watch:** Rabbit Staging, Rabbit Funnel
+
+**API calls:**
+
+```js
+await e3d.stories.list({ limit: 20 });
+```
+
+**How to interpret results:**
+
+Dormant wallets waking up, funding paths, and funnel-like flow can signal pre-positioning.
+
+## 3. Counterparty Risk Monitoring
+
+**Problem:** Know when your exposure is touching stressed infrastructure.
+
+**Signals to watch:** Flow, grouped evidence graphs
+
+**API calls:**
+
+```js
+await e3d.tokenIntelligence.getAddressCounterparties({
+  address,
+  limit: 20,
+});
+```
+
+**How to interpret results:**
+
+Shared infrastructure across multiple anomalies is a stress signal, not just a one-off event.
+
+## 4. Detecting Market Manipulation
+
+**Problem:** Prove the structure, not just the price chart.
+
+**Signals to watch:** Rabbit Cluster, Rabbit Thesis
+
+**API calls:**
+
+```js
+await e3d.stories.list({ limit: 20 });
+await e3d.theses.list({ limit: 20 });
+```
+
+**How to interpret results:**
+
+High reciprocity, dense clusters, and repeated coordination across wallets indicate possible manipulation.
+
+## 5. Sector Rotation
+
+**Problem:** Track capital moving between ecosystems and categories.
+
+**Signals to watch:** Ecosystem Shift, Category stories
+
+**API calls:**
+
+```js
+await e3d.tokens.fetchTokensDB({ dataSource: 1 });
+```
+
+**How to interpret results:**
+
+Use the flow of capital, not just price, to update chain and sector exposure.
+
+## 6. Governance Intelligence
+
+**Problem:** Monitor voting power concentration and delegation changes.
+
+**Signals to watch:** Delegate Surge
+
+**API calls:**
+
+```js
+await e3d.stories.list({ limit: 20 });
+```
+
+**How to interpret results:**
+
+Rapid delegation shifts can foreshadow protocol control changes and market repricing.

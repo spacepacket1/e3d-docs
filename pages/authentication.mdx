@@ -1,0 +1,64 @@
+---
+title: Authentication
+description: How E3D API keys work, how to send them, and how to handle auth errors.
+---
+
+# Authentication
+
+E3D uses API keys for authenticated access. Key management lives on `e3d.ai`; this docs site links there rather than reimplementing auth.
+
+## API key flow
+
+1. Create an account on [e3d.ai/signup](https://e3d.ai/signup)
+2. Open the API Keys dashboard on e3d.ai
+3. Create a key and copy it immediately
+4. Send it on each request
+
+## Header format
+
+Use the standard bearer-style auth header shown below.
+
+```bash
+Authorization: Bearer <your-api-key>
+```
+
+The SDKs default to the E3D API key header used by the live deployment.
+
+## Key management
+
+- Create keys on e3d.ai
+- Revoke keys on e3d.ai
+- Rotate keys regularly
+- Store keys in environment variables, never in source control
+
+## Error responses
+
+Common auth failures include:
+
+- `401` — missing or invalid key
+- `403` — revoked or unauthorized key
+- `429` — rate limited
+
+Example shape:
+
+```json
+{
+  "code": "AUTH_INVALID",
+  "message": "Invalid API key",
+  "status": 401,
+  "endpoint": "/stories"
+}
+```
+
+## Best practices
+
+- Keep keys in `.env` files or deployment secrets
+- Treat the raw key as sensitive from the moment it is created
+- Rotate keys on staff changes or suspected exposure
+- Use separate keys for development and production
+
+## Next
+
+- [Get API Key](/get-api-key)
+- [Quick Start](/quickstart)
+- [API Reference](/api)

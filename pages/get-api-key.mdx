@@ -1,0 +1,33 @@
+---
+title: Get API Key
+description: Create an E3D account and get your API key on e3d.ai.
+---
+
+# Get API Key
+
+Free to start. No credit card required.
+
+[Create your account at e3d.ai →](https://e3d.ai/signup)
+
+Already have an account? Sign in on e3d.ai, then open the API Keys section of your dashboard.
+
+## After you have a key
+
+Keys are shown **once** on creation. Copy it immediately and store it securely.
+
+```bash
+export E3D_API_KEY="your_key_here"
+```
+
+```js
+import { E3D } from 'e3d-sdk';
+
+const e3d = new E3D({
+  apiKey: process.env.E3D_API_KEY,
+});
+```
+
+## Next
+
+- Read [Authentication](/authentication)
+- Follow the [Quick Start](/quickstart)

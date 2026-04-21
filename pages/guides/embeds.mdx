@@ -1,0 +1,38 @@
+---
+title: Embeds
+description: Embed E3D story cards into external pages with iframe support.
+---
+
+# Embeds
+
+E3D story cards can be embedded into external pages through iframe URLs.
+
+## Available embed
+
+- Story card: `https://e3d.ai/embed/story/:storyId`
+
+## Basic usage
+
+```html
+<iframe
+  src="https://e3d.ai/embed/story/STORY_ID"
+  width="600"
+  height="400"
+  frameborder="0"
+  allowtransparency="true"
+></iframe>
+```
+
+## Getting story IDs
+
+```js
+const { stories } = await e3d.stories.list({ limit: 5 });
+// stories[0].id can be used as STORY_ID
+```
+
+## When to use embeds
+
+- trading terminals
+- research dashboards
+- portfolio apps
+- third-party dApps

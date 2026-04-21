@@ -1,0 +1,56 @@
+---
+title: Overview
+description: E3D developer documentation for the blockchain intelligence API, SDKs, and guides.
+---
+
+# E3D Developer Docs
+
+**Blockchain intelligence beyond prices.**
+
+E3D is the developer surface for on-chain stories, investment theses, token intelligence, and wallet-side swap helpers. If CoinGecko and CoinMarketCap tell you *what* moved, E3D tells you *why* it moved and whether the agent has turned that activity into conviction.
+
+## What makes E3D different
+
+| CoinGecko / CMC | E3D |
+|---|---|
+| Price, metadata, volume | Price plus narrative intelligence from live on-chain flow |
+| Static token pages | Token pages with stories, theses, and counterparties |
+| Market data only | Structural evidence, narratives, and directional conclusions |
+
+## Surface at a glance
+
+- [Stories](/concepts/stories) — on-chain field notes triggered by pattern detection
+- [Theses](/concepts/theses) — directional briefs with conviction scores
+- [Token Intelligence](/concepts/token-intelligence) — counterparties and address flow analysis
+- [Price Screener](/concepts/price-screener) — fragility, trend intervals, and narrative counts
+- [NFTs](/concepts/nfts) — NFT endpoints and share status
+- [Agents](/concepts/agents) — experimental agent layer overview
+
+## First request in minutes
+
+```js
+import { E3D } from 'e3d-sdk';
+
+const e3d = new E3D({
+  baseUrl: 'https://e3d.ai/apitest',
+  apiKey: process.env.E3D_API_KEY,
+});
+
+const token = await e3d.tokens.getTokenProfile('0x6488861b401F427D13B6619C77C297366bCf6386');
+console.log(token.name, token.symbol);
+```
+
+## Why developers use E3D
+
+- **Live intelligence**: Stories are triggered by 30+ pattern detectors, not manual tagging.
+- **Structured conviction**: Theses aggregate multiple signals into LONG, SHORT, or AVOID conclusions.
+- **Counterparty visibility**: Address-level and token-level flow analysis is exposed through the API.
+- **Wallet-side swap helpers**: The SDK helps build quotes and transactions, but execution stays in the user’s wallet.
+
+## Next steps
+
+- Start with [Quick Start](/quickstart)
+- Create a key at [Get API Key](/get-api-key)
+- Read the [API Reference](/api)
+- Explore the [SDKs](/sdk/javascript)
+- Learn the core concepts in [Stories](/concepts/stories) and [Theses](/concepts/theses)
