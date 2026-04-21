@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "next dev -p 3006",
     "build": "next build",
-    "start": "next start -p 3006"
+    "start": "next start -p 3006",
+    "postinstall": "patch-package"
   },
   "dependencies": {
     "@scalar/nextjs-api-reference": "latest",
@@ -16,6 +17,7 @@
     "react-dom": "^18.0.0"
   },
   "devDependencies": {
+    "patch-package": "^8.0.1",
     "typescript": "^5.4.0"
   }
 }

@@ -1,0 +1,13 @@
+diff --git a/node_modules/nextra-theme-docs/dist/index.js b/node_modules/nextra-theme-docs/dist/index.js
+index 5620164..572860d 100644
+--- a/node_modules/nextra-theme-docs/dist/index.js
++++ b/node_modules/nextra-theme-docs/dist/index.js
+@@ -148,7 +148,7 @@ var ActiveAnchorProvider = ({
+         });
+       },
+       {
+-        rootMargin: `-${navbarHeight} 0px -50%`,
++        rootMargin: `-${(navbarHeight || "").trim() || "64px"} 0px -50%`,
+         threshold: [0, 1]
+       }
+     );
