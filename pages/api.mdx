@@ -3,7 +3,7 @@ title: API Reference
 description: Interactive reference for the live E3D OpenAPI surface.
 ---
 
-import { ApiReference } from '@scalar/nextjs-api-reference'
+import ApiRef from '../components/ApiRef'
 
 # API Reference
 
@@ -11,7 +11,7 @@ Interactive reference for all E3D API endpoints. The live schema is loaded direc
 
 > **Note:** Authenticated requests require an API key. See [Authentication](/authentication).
 
-<ApiReference
+<ApiRef
   configuration={{
     spec: { url: 'https://e3d.ai/openapi' },
     theme: 'deepSpace',
