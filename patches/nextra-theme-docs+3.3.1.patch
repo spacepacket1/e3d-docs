@@ -1,8 +1,17 @@
 diff --git a/node_modules/nextra-theme-docs/dist/index.js b/node_modules/nextra-theme-docs/dist/index.js
-index 5620164..572860d 100644
+index 5620164..0e6fade 100644
 --- a/node_modules/nextra-theme-docs/dist/index.js
 +++ b/node_modules/nextra-theme-docs/dist/index.js
-@@ -148,7 +148,7 @@ var ActiveAnchorProvider = ({
+@@ -113,7 +113,7 @@ var ActiveAnchorProvider = ({
+     const navbarHeight = getComputedStyle(document.body).getPropertyValue(
+       "--nextra-navbar-height"
+     );
+-    observerRef.current = new IntersectionObserver(
++    try { observerRef.current = new IntersectionObserver(
+       (entries) => {
+         setActiveAnchor((f) => {
+           const ret = __spreadValues({}, f);
+@@ -148,10 +148,10 @@ var ActiveAnchorProvider = ({
          });
        },
        {
@@ -10,4 +19,8 @@ index 5620164..572860d 100644
 +        rootMargin: `-${(navbarHeight || "").trim() || "64px"} 0px -50%`,
          threshold: [0, 1]
        }
-     );
+-    );
++    ); } catch(e) { observerRef.current = { observe: () => {}, disconnect: () => {} }; }
+     return () => {
+       observerRef.current.disconnect();
+     };
