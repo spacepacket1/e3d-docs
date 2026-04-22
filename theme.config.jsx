@@ -23,6 +23,7 @@ export default {
         name="description"
         content="E3D API developer documentation — blockchain intelligence beyond prices."
       />
+      <link rel="icon" href="/favicon.ico" />
     </>
   ),
   primaryHue: 220,
