@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev -p 3006",
-    "build": "next build",
+    "build": "next build && next-sitemap",
     "start": "next start -p 3006",
     "postinstall": "echo 'no patches'"
   },
@@ -17,6 +17,7 @@
     "react-dom": "^18.0.0"
   },
   "devDependencies": {
+    "next-sitemap": "^4.2.3",
     "typescript": "^5.4.0"
   }
 }
