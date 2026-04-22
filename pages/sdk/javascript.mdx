@@ -7,15 +7,18 @@ import { Tabs } from 'nextra/components'
 
 # JavaScript / TypeScript SDK
 
-Install with `npm install e3d-sdk`.
+## Install
+
+```bash
+npm install e3d-sdk
+```
+
+## Quick start
 
 ```js
 import { E3D } from 'e3d-sdk';
 
-const e3d = new E3D({
-  baseUrl: 'https://e3d.ai/apitest',
-  apiKey: process.env.E3D_API_KEY,
-});
+const e3d = new E3D({ apiKey: process.env.E3D_API_KEY });
 ```
 
 ## discovery

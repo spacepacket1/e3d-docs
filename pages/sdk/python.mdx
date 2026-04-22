@@ -1,22 +1,25 @@
 ---
 title: Python SDK
-description: Python examples and helper patterns for the E3D API.
+description: Python SDK for the E3D API. Zero dependencies, stdlib only.
 ---
 
 # Python SDK
 
-> **Note:** A full pip package is coming soon. For now, use the standard-library helper in the examples directory.
+## Install
 
-## Setup
+```bash
+pip install e3d-sdk
+```
 
-Copy `examples/python/e3d_client.py` from the E3D SDK repository and import it into your project.
+Requires Python 3.8+. No external dependencies — stdlib only.
 
 ## Quick start
 
 ```py
-from e3d_client import E3DClient
+import os
+from e3d import E3DClient
 
-client = E3DClient()
+client = E3DClient(api_key=os.environ['E3D_API_KEY'])
 openapi = client.get('/openapi')
 rate = client.get('/rate')
 print(openapi)
@@ -26,9 +29,9 @@ print(rate)
 ## Token profile
 
 ```py
-from e3d_client import E3DClient
+from e3d import E3DClient
 
-client = E3DClient()
+client = E3DClient(api_key=os.environ['E3D_API_KEY'])
 profile = client.get('/token/0x6488861b401F427D13B6619C77C297366bCf6386', query={'chain': 'ETH'})
 print(profile)
 ```
@@ -36,9 +39,9 @@ print(profile)
 ## Stories
 
 ```py
-from e3d_client import E3DClient
+from e3d import E3DClient
 
-client = E3DClient()
+client = E3DClient(api_key=os.environ['E3D_API_KEY'])
 stories = client.get('/stories', query={'limit': 5})
 addresses = client.get('/stories/addresses')
 print(stories)
