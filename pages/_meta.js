@@ -4,7 +4,7 @@ export default {
   authentication: 'Authentication',
   'get-api-key': 'Get API Key',
   concepts: 'Core Concepts',
-  api: 'API Reference',
+  'api-reference': 'API Reference',
   sdk: 'SDKs',
   guides: 'Guides',
   changelog: 'Changelog',
