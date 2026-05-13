@@ -1,32 +1,11 @@
 ---
 title: Story Reference
-description: A reference for the E3D story catalog, major story families, and what they mean.
+description: A reference for the E3D story catalog, major story families, and what each story type is trying to tell you.
 ---
 
 # Story Reference
 
-Use this page to decode story types quickly and understand the expected evidence pattern behind each one.
-
-## Story families
-
-E3D story types are grouped into a few broad families:
-
-- **Rabbit forensics** — structure-first graph findings like loops, clusters, mirrors, and staging
-- **Market/activity** — price, volume, liquidity, discovery, and rotation signals
-- **Risk/confirmation** — manipulation, liquidity, or validation signals that help separate noise from signal
-
-## Example story types
-
-- Rabbit Loop
-- Rabbit Cluster
-- Rabbit Mirror
-- Rabbit Staging
-- Rug Liquidity Pull
-- Whale Stealth Flow
-- Surge
-- Governance Delegation Surge
-- Ecosystem Shift
-- Bridge Paths
+Use this page to decode story types quickly and understand the expected evidence pattern behind each one. It is the “what does this label mean?” companion to the Story Guide.
 
 ## How to use the catalog
 
@@ -36,6 +15,183 @@ When you see a new story type in the feed:
 2. Read the summary for the implication.
 3. Inspect the evidence notes for the graph shape you should expect.
 4. Open the relevant guide if you need deeper workflow context.
+5. Ask whether the story is about a single event, a repeated pattern, or part of a broader campaign.
+
+The goal is to move from label → meaning → proof as quickly as possible.
+
+## Story families
+
+E3D story types are grouped into a few broad families:
+
+- **Rabbit forensics** — structure-first graph findings like loops, clusters, mirrors, and staging
+- **Market/activity** — price, volume, liquidity, discovery, and rotation signals
+- **Risk/confirmation** — manipulation, liquidity, or validation signals that help separate noise from signal
+
+## Rabbit forensics stories
+
+These stories are the most investigation-centric. They tend to describe graph shapes, wallet interactions, and structural relationships rather than just market outcomes.
+
+### Rabbit Thesis
+
+- **What it is:** A bundled intelligence brief that combines multiple rabbit findings into one narrative.
+- **Why it matters:** Gives you the higher-level explanation once multiple rabbit patterns point at the same entity or time window.
+- **Evidence shape:** Expect a synthesis of several graph patterns, often centered around the same token or wallet cluster.
+
+### Rabbit Staging
+
+- **What it is:** A readiness signal that detects wallets or subgraphs waking up before an on-chain action.
+- **Why it matters:** Often the earliest sign that a larger move is being prepared.
+- **Evidence shape:** Dormancy breaks, funding events, infra touchpoints, and short-horizon sequencing.
+
+### Rabbit Funnel
+
+- **What it is:** A convergence pattern where many sources route into fewer sinks.
+- **Why it matters:** Useful for spotting consolidation, staging, collection points, or operational sinks.
+- **Evidence shape:** Source → mid → sink paths, deduped sink components, and sparse explainable graphs.
+
+### Rabbit Cluster
+
+- **What it is:** A topology expansion around a seed that measures density, reciprocity, and hub structure.
+- **Why it matters:** Reveals operational design such as coordination meshes or staging complexes.
+- **Evidence shape:** Multi-depth neighborhoods and topology metrics.
+
+### Rabbit Loop
+
+- **What it is:** Circular or near-circular recycling paths within a bounded subgraph.
+- **Why it matters:** Strong signal for obfuscation, wash-like behavior, liquidity recycling, or testing loops.
+- **Evidence shape:** Cycle paths and supporting edges in a closed structure.
+
+### Rabbit Mirror
+
+- **What it is:** A group of wallets with similar counterparties, timing, or behavior.
+- **Why it matters:** Detects coordination even when wallets never transact directly with each other.
+- **Evidence shape:** Group-to-counterparty bipartite or shared-neighborhood patterns.
+
+## Market and activity stories
+
+These stories focus more on market behavior than on a single graph motif. They help you understand how capital is moving, what is gaining attention, and whether the move looks organic or manufactured.
+
+### Surge
+
+- **What it is:** A price surge paired with on-chain activity context.
+- **Why it matters:** Separates real participation from thin-liquidity spikes.
+- **Evidence shape:** Price delta plus activity and participation deltas.
+
+### Whale Stealth Flow
+
+- **What it is:** A large-holder movement story with obfuscation or stealth routing characteristics.
+- **Why it matters:** Often an early positioning clue before the market fully reacts.
+- **Evidence shape:** Large wallet flows, repeated counterparties, and meaningful net movement.
+
+### Ecosystem Shift
+
+- **What it is:** Cross-chain day-over-day volume rotation.
+- **Why it matters:** Helps you see capital flowing between ecosystems rather than looking at one chain in isolation.
+- **Evidence shape:** Aggregate chain-level statistics rather than a deep graph.
+
+### Bridge Paths
+
+- **What it is:** Cross-chain movement traces.
+- **Why it matters:** Useful when you need to follow capital as it moves across chains and infrastructure.
+- **Evidence shape:** Multi-hop bridge trails and destination topology.
+
+### Discovery
+
+- **What it is:** A story that surfaces new or unknown contracts with meaningful activity.
+- **Why it matters:** Helps you find early opportunities before a token is broadly labeled.
+- **Evidence shape:** Activity plus identity metadata, usually with graph drilldown available.
+
+### Hot Links
+
+- **What it is:** A token with unusually high transaction activity in a short window.
+- **Why it matters:** Good for rapid triage when you want to know where attention is concentrating.
+- **Evidence shape:** Token-centric activity burst with counterparty expansion.
+
+### Category / sector stories
+
+- **What it is:** Rotation across a token category or cohort.
+- **Why it matters:** Gives a sector lens that is hard to extract from a single token chart.
+- **Evidence shape:** Cohort lists, leaders, and relative momentum.
+
+## Risk and confirmation stories
+
+These stories help you decide whether the structure supports the move or warns you away from it.
+
+### Liquidity Drain
+
+- **What it is:** A pool TVL drop that is happening faster than price has fully reflected.
+- **Why it matters:** Often an early warning for rug risk, slippage deterioration, or market-maker exit.
+- **Evidence shape:** TVL snapshots, drop percentages, and pool history.
+
+### Exchange Flow
+
+- **What it is:** Net flow into or out of exchange wallets for a token.
+- **Why it matters:** Exchange inflows can imply sell pressure; outflows can imply accumulation or treasury movement.
+- **Evidence shape:** Net flow direction and magnitude over the lookback window.
+
+### Momentum Divergence
+
+- **What it is:** Price moving one way while fundamentals move the other.
+- **Why it matters:** Classic warning sign that a move may be losing support.
+- **Evidence shape:** Price, user count, volume, and TVL comparison across matched windows.
+
+### Wash Trade
+
+- **What it is:** Artificial volume patterns that look like round-tripping or recycling.
+- **Why it matters:** Lets you discount fake demand and avoid mistaking manufactured liquidity for real interest.
+- **Evidence shape:** Sender/receiver repetition, round-trip ratios, and inflated volume metrics.
+
+### Concentration Shift
+
+- **What it is:** Fast changes in holder concentration, especially top-wallet share.
+- **Why it matters:** Useful for identifying building, distribution, or control shifts.
+- **Evidence shape:** Concentration deltas and the wallets driving them.
+
+### Token Quality Score
+
+- **What it is:** A composite ranking for new or newly surfaced tokens.
+- **Why it matters:** First-pass filter for analyst attention.
+- **Evidence shape:** Score breakdown across liquidity, distribution, security, sell health, and stability.
+
+### Smart Money
+
+- **What it is:** Tokens being accumulated by historically profitable wallets.
+- **Why it matters:** Helps you find candidate trades by watching quality investor behavior.
+- **Evidence shape:** Buyer wallet list, win rate, historical return, and token context.
+
+### Stealth Accumulation
+
+- **What it is:** Many small buys adding up to a coordinated position.
+- **Why it matters:** Helps spot whales splitting size across wallets to stay hidden.
+- **Evidence shape:** Aggregate USD amount, active buyer count, and size ceilings.
+
+### Insider Timing
+
+- **What it is:** Pre-event buying around major announcements or catalysts.
+- **Why it matters:** Useful for building a candidate insider list or monitoring early positioning.
+- **Evidence shape:** Pre-event buying compared to baseline windows.
+
+### Volume Profile Anomaly
+
+- **What it is:** A shift in when and how a token trades, including odd hour-of-day patterns.
+- **Why it matters:** Can signal a new participant base or OTC-like distribution.
+- **Evidence shape:** Histogram shifts, KL divergence, size clustering, and dominant buckets.
+
+### Spread Widening
+
+- **What it is:** Expected slippage worsens faster than trading activity would justify.
+- **Why it matters:** Direct market-depth warning that liquidity is thinning.
+- **Evidence shape:** Current vs prior TVL, slippage ratio, trade activity, and median trade size.
+
+## How to read the catalog in practice
+
+When a story appears, ask three questions:
+
+1. **Is this a structure story, a market story, or a risk story?**
+2. **What evidence shape should I expect if the claim is real?**
+3. **What follow-up view should I open next: stories, /links, token view, or a thesis?**
+
+That sequence keeps you from over-reading a headline and pushes you back toward evidence.
 
 ## Why it matters
 
@@ -46,3 +202,4 @@ The reference page is the quick decoder ring for the story feed. It helps you un
 - [Story Guide](/story-guide)
 - [Story Use Cases](/story-use-cases)
 - [Stories concept](/concepts/stories)
+- [Hedge Fund Workflows](/guides/hedge-fund-workflows)

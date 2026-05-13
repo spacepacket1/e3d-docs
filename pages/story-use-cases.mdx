@@ -1,11 +1,11 @@
 ---
 title: Story Use Cases
-description: Practical workflows for using E3D Stories in research, diligence, and risk monitoring.
+description: Practical workflows for using E3D Stories in research, diligence, risk monitoring, and campaign detection.
 ---
 
 # Story Use Cases
 
-Stories are most useful when they are part of a repeatable workflow.
+Stories are most useful when they are part of a repeatable workflow. This page shows how to use them as a first-pass filter for research, a triage tool for risk, and a launch point for deeper investigation.
 
 ## Common workflows
 
@@ -13,23 +13,62 @@ Stories are most useful when they are part of a repeatable workflow.
 
 Use stories to answer whether a move is organic, manufactured, or tied to coordinated activity.
 
+This is the classic “should I spend analyst time on this?” workflow. Start with the story feed, then inspect the evidence summary, then move into `/links` if the claim deserves verification.
+
 ### 2. Risk monitoring
 
 Watch for liquidity drains, exchange flows, and manipulation signals before price fully reacts.
+
+This is the “what could go wrong?” workflow. Stories can surface risk before it is obvious in price, especially when the underlying structure changes first.
 
 ### 3. Discovery workflows
 
 Surface tokens and wallets with meaningful story activity before the crowd notices.
 
+This works well when you want to rank what deserves attention without manually scanning every token or wallet.
+
 ### 4. Graph investigation
 
 Move from a story card into the `/links` evidence graph and validate the structure directly.
+
+The story gives you the claim; the graph proves or disqualifies it.
+
+## Hedge-fund edge stories
+
+The newer story families are designed around practical fund workflows. They are especially useful because each one points to a distinct decision.
+
+### Liquidity and execution risk
+
+- **LIQUIDITY_DRAIN** — reduce size or exit before the venue becomes difficult to trade.
+- **SPREAD_WIDENING** — treat it as a signal that market depth is deteriorating.
+- **EXCHANGE_FLOW** — use exchange inflows as a risk overlay on longs and outflows as a possible accumulation or custody event.
+
+### Structure and manipulation risk
+
+- **WASH_TRADE** — discount apparent volume if the flow looks recycled.
+- **CONCENTRATION_SHIFT** — watch for a whale gaining or losing control quickly.
+- **MOMENTUM_DIVERGENCE** — avoid chasing moves where price and on-chain activity are no longer aligned.
+
+### Opportunity and positioning
+
+- **ACCUMULATION** — treat large, directional whale buying as a strong watch signal.
+- **SMART_MONEY** — track profitable wallets converging on the same token.
+- **STEALTH_ACCUMULATION** — identify hidden positioning split across many small buys.
+- **BREAKOUT_CONFIRMED** — use the combination of momentum and structure as a stronger entry candidate.
+
+### Discovery and quality ranking
+
+- **TOKEN_QUALITY_SCORE** — rank new listings before spending full analyst effort.
+- **DISCOVERY** — surface new or unknown contracts with meaningful activity.
+- **VOLUME_PROFILE_ANOMALY** — see when activity shape changes enough to deserve review.
 
 ## How to interpret the feed
 
 High story volume does not automatically mean bullish. Read the story type first, then inspect the evidence, then decide whether the token is worth deeper attention.
 
-## Practical example
+The main question is not “is there activity?” but “what kind of activity is it?”
+
+## Practical examples
 
 A token with several stories in a short interval could be:
 
@@ -37,12 +76,61 @@ A token with several stories in a short interval could be:
 - experiencing a wash-trade loop
 - undergoing a liquidity event
 - being driven by a coordinated wallet group
+- entering a breakout phase with real structural support
 
 The story type determines what the activity means.
+
+## Campaign detection
+
+Stories become much more useful when you think in campaigns instead of isolated events.
+
+Look for:
+
+- repeated wallet groups across multiple stories
+- the same counterparties showing up in different events
+- cross-chain movement that ties several stories together
+- the same protocol or infrastructure node appearing repeatedly
+
+If multiple stories share the same underlying actors, you are probably looking at one coordinated campaign rather than unrelated events.
+
+## Evidence-first workflow
+
+When you get a story you care about, use this sequence:
+
+1. Read the headline and summary.
+2. Inspect the key entities and timestamps.
+3. Open the evidence summary.
+4. Ask whether the graph supports the narrative.
+5. Open `/links` and follow the structure yourself.
+6. If multiple related stories exist, group them and inspect the shared subgraph.
+
+## How to decide if the story matters
+
+Not every story deserves action. A story is worth deeper work when it has one or more of these properties:
+
+- it changes your view of a token or wallet
+- it suggests hidden structure or coordination
+- it reveals liquidity, execution, or market-quality risk
+- it appears in multiple related stories
+- it connects to a position you already hold
+
+## Real-world examples
+
+Story-driven workflows often look like this:
+
+- a whale accumulation story shows up before price breaks out
+- a liquidity drain story appears before a pool becomes hard to trade
+- a wash trade story reveals that the “volume” is not real
+- a concentration shift story shows control moving into fewer hands
+- a smart money story surfaces a token with unusually high-quality buyers
+
+The story gives you a hypothesis; the evidence graph tells you whether the hypothesis is real.
 
 ## Why it matters
 
 Stories are the first-pass filter for the platform. They help you decide what deserves more time, more evidence review, and eventually a thesis.
+
+They are especially useful for crypto funds because they compress a lot of messy chain behavior into something you can scan, rank, and act on quickly.
 
 ## Go deeper
 

@@ -1,37 +1,144 @@
 ---
 title: Story Guide
-description: Learn how to read E3D Stories, validate evidence, and drill into the graph.
+description: Learn how to read E3D Stories, validate evidence, drill into the graph, and group related events into a single investigative view.
 ---
 
 # Story Guide
 
-E3D Stories are the narrative layer of the platform: lightweight, crawlable summaries of what happened on-chain, who was involved, and why it matters.
+E3D Stories are the narrative layer of the platform: lightweight, crawlable summaries of what happened on-chain, who was involved, and why it matters. They are designed to be readable in seconds, but each one should also point you toward the evidence graph and the surrounding transaction structure.
 
 ## The mental model
 
 Stories answer **what happened?**
+
 Evidence answers **how do I verify it?**
+
 The graph answers **what does the structure look like?**
 
-A good story should be readable in a few seconds, then let you drill into the raw graph when you need proof.
+A good story should get you from “I saw something interesting” to “I understand the structure well enough to investigate further.”
+
+## What a story is
+
+A story is a structured, time-stamped observation about on-chain behavior. In practice, it often contains:
+
+- a headline or story title
+- the main entity or token being discussed
+- a score or priority
+- a narrative summary
+- a supporting address list
+- a set of graph or evidence hints
+- a timestamp showing when it was created
+
+The important thing is that the story is not just a label. It is a compressed explanation of a detected pattern, and it should be specific enough that you can independently verify it.
 
 ## What to look for
 
-- **Entities** — token, wallet, or protocol the story is centered on
+- **Entities** — token, wallet, protocol, or cluster the story is centered on
 - **Structure** — clusters, funnels, loops, mirrors, or repeated behavior patterns
 - **Impact** — opportunity, risk, manipulation, coordination, or migration
 - **Freshness** — whether the event is happening now or is part of a longer pattern
+- **Confidence** — how strongly the story points to the claimed behavior
+
+## How stories are generated
+
+The general pipeline is:
+
+1. Blockchain data is ingested into the analytics backend.
+2. Pattern-detection scripts identify structural events.
+3. The system turns the event into a narrative story.
+4. The story is written back as a structured record.
+5. The UI surfaces the record in a feed, card, or detail view.
+
+The key idea is that a story should be reproducible from evidence. The narrative is helpful, but it must remain anchored to the underlying graph.
+
+## How to read a story
+
+When you open a story, read it in this order:
+
+1. **Read the title** — identify the pattern type quickly.
+2. **Read the summary** — understand the narrative claim.
+3. **Inspect the addresses** — see who is involved.
+4. **Open the evidence summary** — confirm the claim with structure.
+5. **Drill into `/links`** — inspect the raw transaction graph.
+
+That order matters. The title gives you the hypothesis, the summary gives you the explanation, and the graph gives you proof.
+
+## Story families
+
+Stories usually fall into broad families:
+
+- **Rabbit forensics** — structure-first graph findings like loops, clusters, mirrors, and staging
+- **Market/activity** — price, volume, liquidity, discovery, and rotation signals
+- **Risk/confirmation** — manipulation, liquidity, or validation signals that help separate noise from signal
+
+### Rabbit forensics stories
+
+These stories are the most “investigation-first.” They are intended to show you a repeatable graph shape that can be validated through evidence alone.
+
+Examples include loops, clusters, mirrors, and staging patterns. If you see a rabbit story, your next move should usually be to inspect the graph and confirm the structure.
+
+### Market and activity stories
+
+These stories are less about a single wallet topology and more about market behavior: sudden surges, migrations, liquidity changes, and broad participation patterns.
+
+They are useful when you want to understand whether activity is organic, coordinated, or a response to external conditions.
+
+### Risk and confirmation stories
+
+These stories help you determine whether an observation is supported by enough structure to matter. They often answer whether a movement is likely real, likely manipulated, or likely incomplete.
 
 ## Recommended workflow
 
 1. Scan the story feed for the most relevant events.
-2. Open the evidence summary and confirm the narrative.
-3. Drill into `/links` when you need the surrounding transaction graph.
-4. Group related stories if you suspect one coordinated campaign.
+2. Read the headline and summary first.
+3. Confirm the supporting addresses.
+4. Open the evidence summary and verify the pattern.
+5. Drill into `/links` when you need the surrounding transaction graph.
+6. Group related stories if you suspect one coordinated campaign.
+
+## Evidence and graph reading
+
+When a story looks suspicious or unusually important, the evidence graph becomes the real source of truth.
+
+Pay attention to:
+
+- shared counterparties
+- repeated intermediaries
+- circular wallet paths
+- bridge or exchange hops
+- dense clusters that connect multiple stories
+
+If the graph does not support the narrative, treat the story as an early signal, not a conclusion.
+
+## Group mode
+
+Group mode is useful when multiple stories may belong to the same campaign or operational pattern.
+
+Use it when you want to:
+
+- combine duplicate or overlapping stories
+- expose shared wallets across multiple events
+- see whether multiple narratives point to one actor
+- compare cross-chain or cross-entity behavior
+
+The best way to think about Group mode is as an intersection finder. It helps you identify the shared infrastructure that explains multiple stories at once.
 
 ## Why it matters
 
 Stories are the starting point for investigation, not the final answer. They help you move from anomaly to explanation before you make a decision.
+
+They are especially useful because they make on-chain structure easier to scan, easier to verify, and easier to share with another analyst.
+
+## Suggested checklist
+
+Before you act on a story:
+
+- Do I understand the actors: token, wallet, protocol, or counterparties?
+- Does the graph structure support the narrative claim?
+- Can I identify at least one concrete transaction trail?
+- If it is coordination, do multiple wallets share counterparties or timing?
+- If it is a token event, does chain activity align with the market narrative?
+- Is this story standalone, or does it belong to a broader campaign?
 
 ## Go deeper
 
@@ -39,3 +146,4 @@ Stories are the starting point for investigation, not the final answer. They hel
 - [Story Use Cases](/story-use-cases)
 - [Stories concept](/concepts/stories)
 - [Story Feed guide](/guides/story-feed)
+- [Hedge Fund Workflows](/guides/hedge-fund-workflows)

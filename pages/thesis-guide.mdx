@@ -1,11 +1,15 @@
 ---
 title: Thesis Guide
-description: Learn how to read E3D theses, understand conviction, and trace supporting stories.
+description: Learn how to read E3D theses, understand conviction, trace supporting stories, and use the thesis lifecycle in analysis.
 ---
 
 # Thesis Guide
 
-E3D Theses are structured hypotheses built from converging stories. They tell you what the agent thinks, how confident it is, and what would confirm or invalidate the view.
+E3D Theses are structured hypotheses built from converging stories. They tell you what the agent thinks, how confident it is, and what would confirm or invalidate the view. If stories are the observations, theses are the memo that says what those observations mean.
+
+## What a thesis is
+
+A thesis is a directional brief created when multiple stories converge strongly enough to justify a structured conclusion. It is not a prediction in the abstract; it is a hypothesis with explicit evidence and explicit failure conditions.
 
 ## What a thesis contains
 
@@ -20,13 +24,86 @@ A thesis usually includes:
 - risk factors
 - status
 
-## How to read it
+Depending on the UI, you may also see a conviction history sparkline, annotations, and trade-action links.
+
+## How theses are generated
+
+The core thesis flow is:
+
+1. Stories are scanned for convergence patterns.
+2. Entities are grouped by shared token or wallet identity.
+3. The strongest candidates are scored.
+4. The agent writes a structured thesis with direction, confidence, and risk framing.
+5. The thesis is tracked over time against new stories.
+
+The thesis is therefore downstream of stories, but upstream of the decision. It sits between raw narrative and action.
+
+## How to read a thesis card
 
 Start with the thesis card, then open the contributing stories and verify that the evidence really supports the narrative. If needed, go deeper into `/links` to inspect the underlying structure.
 
-## Why it matters
+When you scan a thesis card, read:
 
-Theses are the agent’s analyst memo. They collapse multiple stories into a single directional view so you can move from raw narrative signals to a clearer decision.
+1. **Direction** — LONG, SHORT, or AVOID.
+2. **Conviction** — how strong the agent thinks the setup is.
+3. **Entity** — what the thesis is about: token, wallet, or protocol.
+4. **Story chips** — what kinds of stories contributed.
+5. **Status** — active, confirmed, invalidated, or expired.
+
+## Direction meanings
+
+- **LONG** — the agent sees bullish structural signals such as accumulation, cluster formation, or confirmation.
+- **SHORT** — the agent sees bearish structural signals such as distribution, thin liquidity, or counter-trend pressure.
+- **AVOID** — the agent sees danger signals such as rugs, loops, or other manipulation patterns.
+
+## Understanding conviction
+
+Conviction is a normalized measure of how strong the thesis looks given the available evidence.
+
+General reading guide:
+
+- low conviction: speculative, noisy, or underdetermined
+- medium conviction: multiple signals are present but not fully confirmed
+- high conviction: several structural signals converge cleanly
+
+The key habit is to read conviction together with the story types and the risk factors. A high score is not enough if the thesis is weak on evidence quality.
+
+## Entry and invalidation signals
+
+Every thesis has two specific, falsifiable signals:
+
+- **Entry signal** — the event that confirms the thesis and suggests it is becoming actionable
+- **Invalidation signal** — the event that kills the thesis or makes it no longer reliable
+
+These signals matter because they tell you what to monitor next. The thesis should always answer: “what would prove this right?” and “what would prove this wrong?”
+
+## Conviction history
+
+Theses are not static. Their conviction can rise, fall, expire, or be invalidated as new stories arrive.
+
+You should watch for:
+
+- conviction rising as more confirming stories appear
+- conviction falling when the market or structure moves against the thesis
+- status changing from active to confirmed
+- hard invalidation when a risk event appears
+- expiration when the time horizon passes without resolution
+
+A thesis with a rising conviction history is often more interesting than one that is already fading.
+
+## Contributing stories
+
+Every thesis traces back to the stories that caused it to be written.
+
+This is the evidence chain:
+
+1. Open the thesis.
+2. Review the contributing story list.
+3. Open each story in the Stories view.
+4. Check whether the same structure appears in the evidence summary.
+5. Go to `/links` if you need to validate the graph directly.
+
+The important question is whether the contributing stories genuinely converge on the same entity or whether the thesis is only loosely related.
 
 ## Relationship to stories
 
@@ -34,6 +111,89 @@ Theses are the agent’s analyst memo. They collapse multiple stories into a sin
 - **Theses** are sustained conclusions
 
 A token can have many stories without a thesis. A thesis appears when the evidence converges strongly enough to justify a structured view.
+
+## Risk factors
+
+The risk factors list is the thesis’s built-in caution label. It tells you what could make the thesis less reliable even if the headline direction looks attractive.
+
+Common risk factors include:
+
+- manipulation or wash behavior
+- thin liquidity
+- bridge or infrastructure risk
+- MEV extraction instead of genuine accumulation
+- conflicting signals from nearby stories
+
+Always read the risk factors before acting. A thesis is only as useful as the assumptions that support it.
+
+## Annotations and position tracking
+
+If the product includes annotations, use them.
+
+Common annotation habits:
+
+- mark whether you are watching, have acted, or passed
+- override conviction if you have better context
+- add notes with relevant wallet addresses, prices, or external events
+- record position size and entry/exit context when available
+
+Annotations turn the thesis feed into a private research history.
+
+## Trade actions
+
+If trade-action links exist, treat them as convenience links, not execution authority.
+
+Before using them:
+
+- verify the entity type
+- confirm whether the entity is a tradeable token or just a wallet address
+- verify the contract address independently
+- make sure the thesis has not been invalidated by a newer story
+
+The thesis should support decision-making; the final execution is still your responsibility.
+
+## Filters and status flow
+
+Thesis status usually moves through a lifecycle such as:
+
+- active
+- confirmed
+- invalidated
+- expired
+
+When filtering the thesis list, the most useful starting point is often active + confirmed, but the full set matters if you want to study invalidations or benchmark thesis quality over time.
+
+## Candidate pipeline
+
+The candidate pipeline is the “pre-thesis” layer.
+
+It contains entities that have enough signal to be interesting but have not yet been promoted into a full thesis. This is useful when you want to see what may become a thesis before the narrative is fully written.
+
+Use it to:
+
+- spot high-convergence candidates early
+- review the matched rules before the thesis appears
+- identify themes that are building across several stories
+
+## Suggested evaluation checklist
+
+Before acting on a thesis:
+
+- Is the conviction high enough for my strategy?
+- Is the time horizon appropriate?
+- Do the contributing stories actually converge?
+- Have I checked the evidence graph, not just the card?
+- Are the risk factors acceptable?
+- Is the entry signal specific enough to monitor?
+- What would invalidate the thesis?
+- If it is LONG, is the entity actually tradeable?
+- Has the conviction history been stable or improving?
+
+## Why it matters
+
+Theses are the agent’s analyst memo. They collapse multiple stories into a single directional view so you can move from raw narrative signals to a clearer decision.
+
+They are particularly powerful when used as part of a loop: thesis → stories → graph → annotation → monitor.
 
 ## Go deeper
 
