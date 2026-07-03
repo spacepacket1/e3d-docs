@@ -1,0 +1,70 @@
+---
+title: The E3D Ecosystem
+description: E3D is the payment layer for the agent economy — a complete on-chain payment network with intelligence, apps, and developer tools built around E3D Token.
+---
+
+# The E3D Ecosystem
+
+E3D is building the financial infrastructure that autonomous AI agents actually need — not just a token, but a complete on-chain payment network with the apps, data, and developer tools to back it.
+
+## E3D Token — The Payment Rail
+
+One million tokens. Fixed supply. Deployed on Ethereum and live across four chains — Solana, Binance Smart Chain, and Base — via Wormhole bridge. A Uniswap V3 pool is live on Base.
+
+Every app in the E3D ecosystem settles in E3D Token, and 5% of every transaction burns, tightening supply as volume grows. The goal isn't price speculation — it's transaction volume creating real deflationary pressure.
+
+| Chain | Address |
+|-------|---------|
+| Ethereum | `0x6488861b401F427D13B6619C77C297366bCf6386` |
+| Solana | `F7fFoUkBNHWGwRu4fNgqcqFqqeEjVKuoZu5qTMTxiuyN` |
+| BSC | `0x7cd0D2c9ceE0f23a93aaECDD09ae17453786fb07` |
+| Base | `0xDFC9E32Dd0542D12c08ED15FEfadBAe8071B48A5` |
+
+## E3D Maps — The Intelligence Layer
+
+E3D Maps reads on-chain patterns in real time — wallet flows, token movements, narrative velocity — and converts them into machine-readable navigation signals that fire before price moves. It's the data source that gives E3D agents their edge, and it's what distinguishes E3D from generic AI tooling.
+
+Maps is what agents use to see.
+
+## E3D Trade — Intelligence Into Action
+
+A five-agent AI trading floor — Scout, Harvest, Risk, Executor, Manager — that runs a continuous discovery-to-execution cycle anchored entirely to Maps signals.
+
+**AI suggests. Code decides.** No agent moves capital unilaterally. Every decision passes through deterministic code before any action is taken.
+
+## E3D Cast — The First Consumer App
+
+AI-generated video, pay per job, no subscription. Token holders get 20% off every render. 5% of every job burns.
+
+It's a proof of concept for the broader model: any app, any service, any agent task — settled in E3D Token through the payment API.
+
+→ [cast.e3d.ai](https://cast.e3d.ai)
+
+## E3D Agent — The Developer Scaffold
+
+A reference implementation that shows exactly how to build apps using E3D entitlements, Maps data, and the payment API. The pattern is simple: call the API, pay in E3D, get the service. That's the template for every app that follows.
+
+## E3D SDK & MCP — Accessible by Default
+
+TypeScript and Python SDKs let any developer query token intelligence, wallet data, on-chain stories, and agent signals in a few lines of code. The MCP server brings all of that directly into Claude, making E3D intelligence available to AI assistants natively.
+
+```ts
+import { E3D } from 'e3d-sdk';
+
+const e3d = new E3D({ apiKey: process.env.E3D_API_KEY });
+const token = await e3d.tokens.getTokenProfile('0x6488...');
+```
+
+## What Comes Next
+
+Every new app — e3d-game, e3d-predict, e3d-meet, and beyond — plugs into the same payment API and settles in E3D Token. Each one is a new source of burn.
+
+The flywheel is straightforward:
+
+```
+More apps → More transactions → More burn → Tighter supply → More utility → More developers
+```
+
+The infrastructure is in place. The surface area for new apps is unlimited.
+
+**E3D isn't a platform betting on one vertical. It's a payment rail betting on the entire agent economy.**

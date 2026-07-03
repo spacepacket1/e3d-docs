@@ -1,5 +1,6 @@
 export default {
   index: 'Overview',
+  ecosystem: 'The E3D Ecosystem',
   quickstart: 'Quick Start',
   authentication: 'Authentication',
   'get-api-key': 'Get API Key',
