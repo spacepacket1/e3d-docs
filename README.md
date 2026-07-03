@@ -18,6 +18,7 @@ npm run start
 
 ## Contents
 
+- Ecosystem overview covering E3D Token, Maps, Trade, Cast, Agent, and the SDK/MCP surface
 - API reference powered by the live `https://e3d.ai/openapi` schema
 - Getting started and authentication guides
 - Concept pages for Stories, Theses, Token Intelligence, Price Screener, NFTs, and Agents
